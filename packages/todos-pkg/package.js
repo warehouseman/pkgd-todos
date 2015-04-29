@@ -15,6 +15,8 @@ Package.onUse(function(api) {
   // one defined in Meteor 1.1.0.2.
   api.versionsFrom('1.1.0.2');
 
+  api.use('templating');
+
   api.addFiles(['client/todos-pkg.js', 'client/todos-pkg.html']);
 
 });
