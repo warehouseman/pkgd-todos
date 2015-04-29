@@ -17,7 +17,8 @@ Package.onUse(function(api) {
 
   api.use('templating');
 
-  api.addFiles(['client/todos-pkg.js', 'client/todos-pkg.html']);
+  api.addFiles(['client/todos-pkg.html'], 'client');  // MUST add all templates FIRST, so helpers can find them
+  api.addFiles(['client/todos-pkg.js'], 'client');    // Now put list your helpers **in execution order**.
 
 });
 
