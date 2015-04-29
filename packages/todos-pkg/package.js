@@ -17,11 +17,13 @@ Package.onUse(function(api) {
 
   api.use('meteor-platform');
 
-  api.addFiles(['lib/collections/tasks.js'], 'client', 'server');
-  api.export('Tasks', 'client', 'server');
+  api.addFiles(['lib/collections/tasks.js'], ['client', 'server']);
+  api.export('Tasks', ['client', 'server']);
 
-  api.addFiles(['client/todos-pkg.html'], 'client');  // MUST add all templates FIRST, so helpers can find them
-  api.addFiles(['client/todos-pkg.js'], 'client');    // Now put list your helpers **in execution order**.
+  api.addFiles(['server/initializeTasks.js'], ['server']);
+
+  api.addFiles(['client/todos-pkg.html'], ['client']);  // MUST add all templates FIRST, so helpers can find them
+  api.addFiles(['client/todos-pkg.js'], ['client']);    // Now put list your helpers **in execution order**.
 
 });
 
