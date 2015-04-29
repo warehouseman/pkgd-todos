@@ -15,7 +15,10 @@ Package.onUse(function(api) {
   // one defined in Meteor 1.1.0.2.
   api.versionsFrom('1.1.0.2');
 
-  api.use('templating');
+  api.use('meteor-platform');
+
+  api.addFiles(['lib/collections/tasks.js'], 'client', 'server');
+  api.export('Tasks', 'client', 'server');
 
   api.addFiles(['client/todos-pkg.html'], 'client');  // MUST add all templates FIRST, so helpers can find them
   api.addFiles(['client/todos-pkg.js'], 'client');    // Now put list your helpers **in execution order**.
