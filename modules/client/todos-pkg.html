@@ -1,0 +1,11 @@
+<template name="todos">
+	<ul>
+		{{#each tasks}}
+		  {{> task}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="task">
+  <li>{{text}}</li>
+</template>
