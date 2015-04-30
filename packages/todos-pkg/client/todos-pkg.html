@@ -1,9 +1,17 @@
+
 <template name="todos">
+  {{> newTaskForm}}
 	<ul>
 		{{#each tasks}}
 		  {{> task}}
 		{{/each}}
 	</ul>
+</template>
+
+<template name="newTaskForm">
+  <form class="new-task">
+    <input type="text" name="text" placeholder="Type to add new tasks" />
+  </form>
 </template>
 
 <template name="task">
