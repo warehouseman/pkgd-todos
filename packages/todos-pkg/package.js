@@ -16,6 +16,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
 
   api.use('meteor-platform');
+  api.use('accounts-ui');
+  api.use('accounts-password');
 
   api.addFiles(['lib/collections/tasks.js'], ['client', 'server']);
   api.export('Tasks', ['client', 'server']);

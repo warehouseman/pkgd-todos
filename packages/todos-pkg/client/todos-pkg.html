@@ -2,25 +2,28 @@
 <template name="todos">
   <h1>Todo List ({{incompleteCount}})</h1>
   {{> taskFilter}}
+  {{> loginButtons}}
   {{> newTaskForm}}
-	<ul>
-		{{#each tasks}}
-		  {{> task}}
-		{{/each}}
-	</ul>
+  <ul>
+    {{#each tasks}}
+      {{> task}}
+    {{/each}}
+  </ul>
 </template>
 
 <template name="taskFilter">
-	<label class="hide-completed">
-	  <input type="checkbox" checked="{{hideCompleted}}" />
-	  Hide Completed Tasks
-	</label>
+  <label class="hide-completed">
+    <input type="checkbox" checked="{{hideCompleted}}" />
+    Hide Completed Tasks
+  </label>
 </template>
 
 <template name="newTaskForm">
-  <form class="new-task">
-    <input type="text" name="text" placeholder="Type to add new tasks" />
-  </form>
+  {{#if currentUser}}
+    <form class="new-task">
+      <input type="text" name="text" placeholder="Type to add new tasks" />
+    </form>
+  {{/if}}
 </template>
 
 <template name="task">
@@ -29,6 +32,7 @@
 
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
 
-    <span class="text">{{text}}</span>
+    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+
   </li>
 </template>
