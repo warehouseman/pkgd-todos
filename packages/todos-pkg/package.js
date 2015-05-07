@@ -23,6 +23,7 @@ Package.onUse(function(api) {
   api.export('Tasks', ['client', 'server']);
 
   api.addFiles(['server/initializeTasks.js'], ['server']);
+  api.addFiles(['server/todos_server.js'], ['server']);
 
   api.addFiles(['client/todos-pkg.html'], ['client']);  // MUST add all templates FIRST, so helpers can find them
   api.addFiles(['client/todos-pkg.js'], ['client']);    // Now put list your helpers **in execution order**.

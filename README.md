@@ -16,7 +16,7 @@ Lessons learned from Steps #4 through #8 -- "
 
  1. Everything worked exactly as in the non-packaged tutorial; relocated to suit package structure, however.
 
-Lessons learned from step #9 -- "
+Lessons learned from steps #9 & #10 -- "
 
  1. Again, everything worked exactly as in the non-packaged tutorial
 

@@ -22,13 +22,15 @@ Template.todos.events({
 
       var text = event.target.text.value;
 
+      Meteor.call("addTask", text);
+/*
       Tasks.insert({
                text: text
         , createdAt: new Date()              // current time
         ,     owner: Meteor.userId()         // _id of logged in user
         ,  username: Meteor.user().username  // username of logged in user
       });
-
+*/
       // Clear form
       event.target.text.value = "";
 
@@ -44,10 +46,12 @@ Template.todos.events({
 Template.task.events({
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
-      Tasks.update(this._id, {$set: {checked: ! this.checked}});
+      Meteor.call("setChecked", this._id, ! this.checked);
+//      Tasks.update(this._id, {$set: {checked: ! this.checked}});
   }
   , "click .delete": function () {
-      Tasks.remove(this._id);
+      Meteor.call("deleteTask", this._id);
+//      Tasks.remove(this._id);
   }
 });
 
