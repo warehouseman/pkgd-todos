@@ -1,11 +1,20 @@
 
 <template name="todos">
+  <h1>Todo List ({{incompleteCount}})</h1>
+  {{> taskFilter}}
   {{> newTaskForm}}
 	<ul>
 		{{#each tasks}}
 		  {{> task}}
 		{{/each}}
 	</ul>
+</template>
+
+<template name="taskFilter">
+	<label class="hide-completed">
+	  <input type="checkbox" checked="{{hideCompleted}}" />
+	  Hide Completed Tasks
+	</label>
 </template>
 
 <template name="newTaskForm">
