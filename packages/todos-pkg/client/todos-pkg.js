@@ -1,3 +1,5 @@
+Meteor.subscribe("tasks");
+
 Template.todos.helpers({
     tasks: function () {
       if (Session.get("hideCompleted")) {
@@ -43,6 +45,13 @@ Template.todos.events({
   }
 });
 
+
+Template.task.helpers({
+  isOwner: function () {
+    return this.owner === Meteor.userId();
+  }
+});
+
 Template.task.events({
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
@@ -53,6 +62,10 @@ Template.task.events({
       Meteor.call("deleteTask", this._id);
 //      Tasks.remove(this._id);
   }
+  , "click .toggle-private": function () {
+      Meteor.call("setPrivate", this._id, ! this.private);
+  }
+
 });
 
 Accounts.ui.config({
